@@ -1,8 +1,8 @@
 class TweetLimiter
   attr_reader :recipients
   
-  def initialize(period = 3600, recipients = {}, now = Time.now)
-    @period, @recipients, @now = period, recipients, now
+  def initialize(recipients, period = 3600, now = Time.now)
+    @recipients, @period, @now = recipients, period, now
     refresh_recipients!
   end
 

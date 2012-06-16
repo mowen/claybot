@@ -2,10 +2,15 @@
 
 require 'rubygems'
 require 'chatterbot/dsl'
-require File.join(File.dirname(__FILE__), 'sheeeiiit')
+
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'lib')
+
+require 'sheeeiiit'
+require 'tweet_limiter'
+require 'tweet_filter'
 
 # remove this to send out tweets
-#debug_mode
+debug_mode
 # remove this to update the db
 #no_update
 
@@ -20,6 +25,15 @@ exclude "hi", "spammer", "junk"
 
 search('"clay davis"') do |tweet|
   user = tweet_user(tweet)
-  sheeeiiit = Sheeeiiit.generate
-  reply "#{user} #{sheeeiiit}", tweet
+
+  recipients = bot.config[:recipients] || {}
+  limiter = TweetLimiter.new(recipients)
+  
+  if limiter.can_receive_tweet?(user) && TweetFilter.allow?(tweet)
+    sheeeiiit = Sheeeiiit.generate
+    reply "#{user} #{sheeeiiit}", tweet
+    limiter.add_recipient(user)
+  end
+
+  bot.config[:recipients] = limiter.recipients
 end
