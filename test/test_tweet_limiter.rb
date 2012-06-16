@@ -1,7 +1,7 @@
 require 'test/unit'
 require 'shoulda'
 
-require File.join(File.dirname(__FILE__), 'tweet_limiter')
+require 'tweet_limiter'
 
 class TestTweetLimiter < Test::Unit::TestCase
   context "a tweet limiter with a tweet recipient" do

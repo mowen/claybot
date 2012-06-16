@@ -1,7 +1,7 @@
 require 'test/unit'
 require 'shoulda'
 
-require File.join(File.dirname(__FILE__), 'tweet_filter')
+require 'tweet_filter'
 
 class TestTweetFilter < Test::Unit::TestCase
   context "a tweet filter" do

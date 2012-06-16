@@ -1,7 +1,7 @@
 require 'test/unit'
 require 'shoulda'
 
-require File.join(File.dirname(__FILE__), 'sheeeiiit')
+require 'sheeeiiit'
 
 class TestSheeeiiit < Test::Unit::TestCase
   context "a sheeeiiit" do
