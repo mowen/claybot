@@ -18,7 +18,7 @@ debug_mode
 verbose
 
 # here's a list of users to ignore
-blacklist "claydavis", "wireclaydavis", "sheeeeeeeeeeeit", "Sen_Clay_Davis"
+blacklist "claydavis", "wireclaydavis", "sheeeeeeeeeeeit", "Sen_Clay_Davis", "WireFans"
 
 # here's a list of things to exclude from searches
 exclude "hi", "spammer", "junk"
