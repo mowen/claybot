@@ -9,7 +9,7 @@ class TestTweetLimiter < Test::Unit::TestCase
     setup do
       @recipient = '@martinowen'
       @period = 3600
-      @now = Time.new(2012, 6, 16, 16, 38, 0)
+      @now = Time.local(2012, 6, 16, 16, 38, 0)
       @limiter = TweetLimiter.new({}, @period, @now)
       @limiter.add_recipient(@recipient)
     end
